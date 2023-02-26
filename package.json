@@ -1,6 +1,6 @@
 {
   "name": "ljc-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^10.0.0"
+    "chalk": "^4.1.2",
+    "commander": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "inquirer": "^8.2.5",
+    "ora": "^5.4.0"
   }
 }
