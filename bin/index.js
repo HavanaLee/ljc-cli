@@ -1,11 +1,24 @@
 #! /usr/bin/env node
 
-const { program } = require('commander')
 const chalk = require('chalk')
+const semver = require('semver')
+const requiredVersion = require('../package.json').engines.node // node最低要求
+
+// 检查node版本是否符合脚手架要求
+function checkNodeVersion(wanted, id) {
+    if (!semver.satisfies(process.version, wanted, { includePrerelease: true })) {
+        console.log(chalk.red(
+            'You are using Node ' + process.version + ', but this version of ' + id +
+            ' requires Node ' + wanted + '.\nPlease upgrade your Node version.'
+        ));
+        process.exit(1)
+    }
+}
+
+checkNodeVersion(requiredVersion, 'ljc-cli')
 
 
-
-
+const { program } = require('commander')
 program
     .name('ljc-cli')
     .version(require('../package.json').version)
