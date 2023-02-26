@@ -13,4 +13,12 @@ const questionList = [
     }
 ]
 
-module.exports = questionList
+const overwrite = [
+    {
+        name: 'overWrite',
+        type: 'confirm',
+        message: '目录已存在，是否覆盖？'
+    }
+]
+
+module.exports = { questionList, overwrite }

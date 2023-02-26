@@ -2,8 +2,8 @@
 
 const { program } = require('commander')
 const chalk = require('chalk')
-const inquirer = require('inquirer')
-const questionList = require('./question.js')
+
+
 
 
 program
@@ -14,14 +14,13 @@ program
 program
     .command('clone <source> [destination]')
     .description('clone a repository into a newly created directory')
+
 program
     .command('create <name>')
     .description('create a new project powered by ljc-cli')
-    .action((name) => {
-        inquirer.prompt(questionList).then(res => {
-            console.log(res);
-            const sipner = require('./loading.js')
-        })
+    .option('-f, --force', 'overwrite target directory if it exists')
+    .action((name, options) => {
+        require('./create.js')(name, options)
     })
 
 program.parse(process.argv)
